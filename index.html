@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Video with Sound</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            display: none; /* Hide video initially */
+        }
+
+        button {
+            position: absolute;
+            z-index: 10;
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <button id="playButton">Play Video</button>
+    <video id="video">
+        <source src="vijo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        const playButton = document.getElementById("playButton");
+        const video = document.getElementById("video");
+
+        playButton.addEventListener("click", function () {
+            video.style.display = "block"; // Show video
+            video.play(); // Play video
+            video.muted = false; // Unmute
+            playButton.style.display = "none"; // Hide button after playing
+        });
+    </script>
+
+</body>
+</html>
